@@ -150,3 +150,28 @@ input[type="range"]::-webkit-slider-thumb {
     padding: 0.7rem 1rem;
   }
 }
+
+/* Prevent text selection while drawing */
+.container {
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* Make buttons more touch-friendly */
+.btn {
+  min-height: 48px; /* Minimum touch target size */
+}
+
+/* Responsive container sizing */
+@media (max-width: 600px) {
+  .container {
+    width: 95vw;
+    height: 95vw;
+    max-width: none;
+  }
+
+  .settings {
+    width: 95vw;
+  }
+}
