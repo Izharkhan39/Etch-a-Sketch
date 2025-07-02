@@ -1,4 +1,4 @@
-/* Base Styles */
+/* Base Styles remain the same */
 body {
   display: flex;
   justify-content: center;
@@ -8,170 +8,218 @@ body {
   min-height: 100vh;
   font-family: "Helvetica Neue", Arial, sans-serif;
   margin: 0;
-  padding: 2rem;
+  padding: 1rem; /* Reduced padding for mobile */
   box-sizing: border-box;
   color: #333;
 }
 
-h1 {
-  margin: 0 0 2rem 0;
-  font-size: 2.8rem;
-  font-weight: 300;
-  letter-spacing: -0.5px;
-  color: #222;
-}
-
-/* Main Layout */
+/* Mobile-first styles */
 .main {
   width: 100%;
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem; /* Reduced gap for mobile */
 }
 
-/* Drawing Container */
 .container {
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 1/1;
+  width: 95vw;
+  height: 95vw;
   background-color: white;
   display: flex;
   flex-wrap: wrap;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   border: 1px solid #e0e0e0;
+  order: 1; /* Ensure container appears first */
 }
 
-.pixel {
-  box-sizing: border-box;
-}
-
-/* Control Panel */
 .settings {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.2rem;
-  width: 100%;
-  max-width: 500px;
-  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  width: 95vw;
+  padding: 1rem;
   background-color: white;
   border: 1px solid #e0e0e0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  order: 2; /* Ensure settings appear second */
 }
 
-/* Buttons */
+/* Compact mobile buttons */
 .btn {
-  font-size: 0.95rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  border: 1px solid #e0e0e0;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  width: 100%;
-  font-weight: 400;
-  background-color: white;
-  color: #333;
+  font-size: 0.85rem;
+  padding: 0.6rem 0.5rem;
+  min-height: 40px;
+  margin: 0;
 }
 
-.btn:hover {
-  background-color: #f0f0f0;
-}
-
-.active {
-  background-color: #333;
-  color: white;
-  border-color: #333;
-}
-
-/* Slider */
 .slider-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  grid-column: span 2;
 }
 
-.slider-value {
-  font-size: 0.9rem;
-  color: #666;
-  text-align: center;
-}
-
-input[type="range"] {
-  width: 100%;
-  height: 6px;
-  -webkit-appearance: none;
-  background: #e0e0e0;
-  border-radius: 3px;
-  outline: none;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  background: #333;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Responsive Design */
+/* Desktop styles */
 @media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+
   .main {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
+    max-width: 1000px;
     gap: 3rem;
   }
 
+  .container {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1/1;
+    order: 0;
+  }
+
   .settings {
+    display: flex;
+    flex-direction: column;
     width: 240px;
     padding: 1.8rem 1.2rem;
-  }
-
-  h1 {
-    margin-bottom: 3rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    padding: 1.5rem;
-  }
-
-  h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
+    order: 0;
   }
 
   .btn {
-    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+    min-height: 48px;
+    width: 100%;
   }
 }
 
-/* Prevent text selection while drawing */
+/* Title adjustments */
+h1 {
+  margin: 0 0 1.5rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: #222;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Other existing styles remain the same */ /* Base Styles remain the same */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f8f8f8;
+  min-height: 100vh;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem; /* Reduced padding for mobile */
+  box-sizing: border-box;
+  color: #333;
+}
+
+/* Mobile-first styles */
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Reduced gap for mobile */
+}
+
 .container {
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: none;
+  width: 95vw;
+  height: 95vw;
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
+  order: 1; /* Ensure container appears first */
 }
 
-/* Make buttons more touch-friendly */
+.settings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+  width: 95vw;
+  padding: 1rem;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  order: 2; /* Ensure settings appear second */
+}
+
+/* Compact mobile buttons */
 .btn {
-  min-height: 48px; /* Minimum touch target size */
+  font-size: 0.85rem;
+  padding: 0.6rem 0.5rem;
+  min-height: 40px;
+  margin: 0;
 }
 
-/* Responsive container sizing */
-@media (max-width: 600px) {
+.slider-container {
+  grid-column: span 2;
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  body {
+    padding: 2rem;
+  }
+
+  .main {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 1000px;
+    gap: 3rem;
+  }
+
   .container {
-    width: 95vw;
-    height: 95vw;
-    max-width: none;
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1/1;
+    order: 0;
   }
 
   .settings {
-    width: 95vw;
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    padding: 1.8rem 1.2rem;
+    order: 0;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.5rem;
+    min-height: 48px;
+    width: 100%;
+  }
+}
+
+/* Title adjustments */
+h1 {
+  margin: 0 0 1.5rem 0;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  color: #222;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
   }
 }
